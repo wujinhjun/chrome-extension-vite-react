@@ -3,6 +3,10 @@ import logo from "@assets/img/logo.svg";
 import "@pages/popup/Popup.css";
 
 const Popup = () => {
+  const openSetting = () => {
+    const optionsURL = chrome.runtime.getURL("src/pages/options/index.html");
+    chrome.tabs.create({ url: optionsURL });
+  };
   return (
     <div className="App">
       <header className="App-header">
@@ -19,6 +23,7 @@ const Popup = () => {
           Learn React!
         </a>
       </header>
+      <button onClick={(event) => openSetting()}>open setting</button>
     </div>
   );
 };
